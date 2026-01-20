@@ -26,7 +26,7 @@ body{
 }
 h1{
     font-size:22px;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 button{
     padding:12px 26px;
@@ -48,6 +48,21 @@ button{
     background:#ff4d4d;
     color:#fff;
     position:relative;
+}
+.heart-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:140px;
+    height:140px;
+    margin-top:20px;
+    background:#ff4d6d;
+    color:white;
+    text-decoration:none;
+    border-radius:50%;
+    font-size:16px;
+    font-weight:bold;
+    box-shadow:0 0 20px rgba(255,77,109,0.8);
 }
 </style>
 </head>
@@ -83,8 +98,24 @@ function next(){
 }
 
 function accept(){
-    document.querySelector(".box").innerHTML =
-    "<h1>💖 Yayyyy 💖<br>Tớ biết mà 😳<br>Nguyên Thảo là người yêu tớ rồi 🥰</h1>";
+    document.querySelector(".box").innerHTML = `
+        <h1>
+            💖 Yayyyy 💖<br>
+            Tớ biết mà 😳<br>
+            Nguyên Thảo là người yêu tớ rồi 🥰
+        </h1>
+
+        <p style="margin-top:15px;font-size:16px;">
+            Dạ vk bấm vào nút ở dưới rồi nhắn <b>“em yêu anh”</b> đi 💕
+        </p>
+
+        <a class="heart-btn" href="https://m.me/" target="_blank">
+            ❤️<br>
+            Truy cập<br>
+            trái tim<br>
+            của ck
+        </a>
+    `;
 }
 
 function run(){
