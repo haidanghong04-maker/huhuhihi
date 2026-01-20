@@ -2,14 +2,14 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Một câu hỏi nhỏ 💖</title>
+<title>Tớ thích cậu 💖</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
     margin:0;
     height:100vh;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    background:linear-gradient(135deg,#ff7eb3,#ff758c);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -18,23 +18,27 @@ body{
     color:#fff;
 }
 .box{
-    background:rgba(0,0,0,0.3);
-    padding:25px;
-    border-radius:15px;
+    background:rgba(0,0,0,0.35);
+    padding:30px;
+    border-radius:18px;
     width:90%;
-    max-width:350px;
+    max-width:360px;
 }
 h1{
     font-size:22px;
-    margin-bottom:20px;
+    margin-bottom:25px;
 }
 button{
-    padding:10px 20px;
-    font-size:16px;
+    padding:12px 26px;
+    font-size:18px;
     border:none;
-    border-radius:25px;
+    border-radius:30px;
     cursor:pointer;
-    margin:8px;
+    margin:10px;
+}
+#next{
+    background:#00ffcc;
+    color:#000;
 }
 #yes{
     background:#00ffcc;
@@ -50,35 +54,43 @@ button{
 
 <body>
 <div class="box">
-    <h1 id="question">Tớ hỏi nè… cậu có rảnh đọc hết không? 🥺</h1>
-    <button id="yes" onclick="next()">Có 💕</button>
-    <button id="no" onmouseover="run()">Không 😭</button>
+    <h1 id="question">Tớ có điều muốn nói với cậu… 🥺</h1>
+    <div id="buttons">
+        <button id="next" onclick="next()">Tiếp 👉</button>
+    </div>
 </div>
 
 <script>
 let step = 0;
 const questions = [
-    "Cậu thấy tớ có dễ thương không? 😳",
-    "Thật lòng nha… cậu có thích nói chuyện với tớ không? 💬",
-    "Nếu tớ biến mất một ngày… cậu có buồn không? 🥹",
-    "Tớ hỏi câu này hơi nghiêm túc nè…",
-    "Cậu làm người yêu tớ nha ❤️"
+    "Tớ thích nói chuyện với cậu lắm 😳",
+    "Mỗi lần thấy cậu là tim tớ đập nhanh hơn 💓",
+    "Tớ suy nghĩ rất nhiều trước khi làm cái web này…",
+    "💘 Tớ thích cậu rất nhiều 💘<br>Làm người yêu tớ nhé <b>Nguyên Thảo</b>?"
 ];
 
 function next(){
     step++;
     if(step < questions.length){
-        document.getElementById("question").innerText = questions[step];
-    }else{
-        document.querySelector(".box").innerHTML =
-        "<h1>💘 Tớ thích cậu rất nhiều 💘<br>Làm người yêu tớ nhé?</h1>";
+        document.getElementById("question").innerHTML = questions[step];
+        if(step === questions.length - 1){
+            document.getElementById("buttons").innerHTML = `
+                <button id="yes" onclick="accept()">Dạ 💕</button>
+                <button id="no" onmouseover="run()">Đéo 😭</button>
+            `;
+        }
     }
+}
+
+function accept(){
+    document.querySelector(".box").innerHTML =
+    "<h1>💖 Yayyyy 💖<br>Tớ biết mà 😳<br>Nguyên Thảo là người yêu tớ rồi 🥰</h1>";
 }
 
 function run(){
     const btn = document.getElementById("no");
-    btn.style.left = Math.random()*200 - 100 + "px";
-    btn.style.top  = Math.random()*200 - 100 + "px";
+    btn.style.left = Math.random()*250 - 120 + "px";
+    btn.style.top  = Math.random()*250 - 120 + "px";
 }
 </script>
 </body>
