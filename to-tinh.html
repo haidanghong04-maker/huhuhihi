@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Một câu hỏi nhỏ 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:Arial;
+    text-align:center;
+    color:#fff;
+}
+.box{
+    background:rgba(0,0,0,0.3);
+    padding:25px;
+    border-radius:15px;
+    width:90%;
+    max-width:350px;
+}
+h1{
+    font-size:22px;
+    margin-bottom:20px;
+}
+button{
+    padding:10px 20px;
+    font-size:16px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    margin:8px;
+}
+#yes{
+    background:#00ffcc;
+    color:#000;
+}
+#no{
+    background:#ff4d4d;
+    color:#fff;
+    position:relative;
+}
+</style>
+</head>
+
+<body>
+<div class="box">
+    <h1 id="question">Tớ hỏi nè… cậu có rảnh đọc hết không? 🥺</h1>
+    <button id="yes" onclick="next()">Có 💕</button>
+    <button id="no" onmouseover="run()">Không 😭</button>
+</div>
+
+<script>
+let step = 0;
+const questions = [
+    "Cậu thấy tớ có dễ thương không? 😳",
+    "Thật lòng nha… cậu có thích nói chuyện với tớ không? 💬",
+    "Nếu tớ biến mất một ngày… cậu có buồn không? 🥹",
+    "Tớ hỏi câu này hơi nghiêm túc nè…",
+    "Cậu làm người yêu tớ nha ❤️"
+];
+
+function next(){
+    step++;
+    if(step < questions.length){
+        document.getElementById("question").innerText = questions[step];
+    }else{
+        document.querySelector(".box").innerHTML =
+        "<h1>💘 Tớ thích cậu rất nhiều 💘<br>Làm người yêu tớ nhé?</h1>";
+    }
+}
+
+function run(){
+    const btn = document.getElementById("no");
+    btn.style.left = Math.random()*200 - 100 + "px";
+    btn.style.top  = Math.random()*200 - 100 + "px";
+}
+</script>
+</body>
+</html>
